@@ -41,4 +41,16 @@ risk_percent = (total_dose / 1000) * 5  # linear ERR model
 st.metric("☢ Estimated Total Dose (mSv)", f"{total_dose:.2f}")
 st.metric("⚠ Estimated Cancer Risk", f"{risk_percent:.2f} %")
 
+#chart
+days_range = list(range(1, mission_days + 1))
+dose_curve = [daily_dose * day for day in days_range]
+
+
+chart_data = {
+    "Mission Duration (days)": days_range,
+    "Total Dose (mSv)": dose_curve
+}
+
+st.line_chart(chart_data)
+
 st.caption("ICRP model: 5% risk increase per 1 Sv of exposure. Not for clinical use.")
