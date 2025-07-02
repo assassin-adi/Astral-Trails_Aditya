@@ -30,7 +30,8 @@ except:
 
 # Simplified dose model
 base_dose_per_day = flux * 0.00005  # empirical approximation
-shield_factors = {'None': 1.0, 'Aluminum': 0.7, 'Polyethylene': 0.5}
+shielding_material = st.selectbox("Shielding Material", ["None", "Aluminum", "Polyethylene", "Kevlar", "Lead", "Iron"])
+
 daily_dose = base_dose_per_day * shield_factors[shielding_material]
 total_dose = daily_dose * mission_days  # in mSv
 
