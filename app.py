@@ -8,7 +8,14 @@ st.title("Cosmic Radiation Risk Calculator")
 
 # Inputs
 mission_days = st.slider("Mission Duration (days)", 1, 1000, 180)
-shielding_material = st.selectbox("Shielding Material", ["None", "Aluminum", "Polyethylene"])
+shield_factors = {
+    'None': 1.0,
+    'Aluminum': 0.7,
+    'Polyethylene': 0.5,
+    'Kevlar': 0.5,
+    'Lead': 0.8,
+    'Iron': 0.85
+}
 
 # Real-time proton flux from NOAA
 url = "https://services.swpc.noaa.gov/json/goes/primary/differential-proton-flux-1-day.json"
